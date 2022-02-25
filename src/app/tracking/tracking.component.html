@@ -1,0 +1,306 @@
+<div class="container" >
+    <ngx-spinner></ngx-spinner>
+    <div class="row" style="margin-top: 30px">
+      <div class="col-md-7">
+        <div class="card">
+          <div class="card-header">
+            <i class="material-icons">assignment</i>
+          </div>
+          <div class="card-content">
+            <h4 class="card-title">Please select the group key from dropdown.(Groupkey is the combination of Seag + Vehicle Series + Production Date(YYYY-MM-DD))
+            </h4>
+            <form #listingForm="ngForm">
+              <div class="row">
+             
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field color="accent">
+                    <mat-label>Select Group Key</mat-label>
+                    <mat-select [(value)]="selectedGroupKey" name="groupKey" ngModel required (selectionChange)="selectedGoupKey($event.value)">
+                            <mat-option *ngFor="let groupkey of groupKeyDropdown" [value]="groupkey">{{groupkey}}</mat-option>
+                   </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                        <mat-form-field color="accent">
+                                <mat-label>Select Vehicle Series</mat-label>
+                                <mat-select [(value)]="selectedVehicleSeries" name="vehicleSeries" ngModel required (selectionChange)="dropdownVehicleSeries($event.value)">
+                                        <mat-option value="all">Select All</mat-option>
+                                <mat-option *ngFor="let serieskey of seriesDropdown" [value]="serieskey">{{serieskey}}</mat-option>
+                               
+                               </mat-select>
+                              </mat-form-field>
+                </div> 
+                <div class="col-md-4">
+                        <mat-form-field color="accent">
+                                <mat-label>Select Production Month</mat-label>
+                                <mat-select [(value)]="selectedProductionMonth" name="productionMonth" ngModel required (selectionChange)="dropdownProductionMonth($event.value)">
+                                        <mat-option value="all">Select All</mat-option>
+                                <mat-option *ngFor="let productionmonth of ProductionMonthDropdown" [value]="productionmonth">{{productionmonth}}</mat-option>
+                                <!-- <mat-option >B</mat-option>
+                                <mat-option >C</mat-option> -->
+                               </mat-select>
+                              </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                 
+                </div>
+              </div>
+              <!-- <div class="row action-btn">
+                
+              </div> -->
+              <button 
+                     md-raised-button
+                    type="submit" class="btn btn-rose" 
+                    [disabled]="listingForm.form.invalid"
+                    (click)="filterByGroupID()"
+                   >SUBMIT</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card" style="height:250px">
+            <div class="card-header">
+                <i class="material-icons">assignment</i>
+              </div>
+              <div class="card-content">
+                  <h4 class="card-title">MIS(Month in service) Chart
+                    <!-- <small class="category">Complete your profile</small> -->
+                  </h4>
+                  <form #filterForm="ngForm">
+                    <div class="row">
+                   
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <mat-form-field color="accent">
+                          <mat-label>Select Year</mat-label>
+                          <mat-select [(value)]="selectedYear" name="year" ngModel required>
+                            <mat-option value="all">Select All</mat-option>
+                              <mat-option *ngFor="let misyear of misYears" [value]="misyear.value" (onSelectionChange)="onSelectEventYear($event, misyear)">
+                                  {{misyear.viewValue}}
+                              </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        
+                      </div>
+                      <div class="col-md-4">
+                      
+                        
+                      </div>
+                     
+                    
+                    </div>
+                    <button 
+                           md-raised-button
+                          type="submit" class="btn btn-rose" 
+                          (click)="filterByGroupIDmis()" [disabled]="filterForm.form.invalid"
+                         >SEARCH</button>
+      
+                         <!-- <button 
+                         md-raised-button
+                        type="submit" class="btn btn-rose" 
+                        mat-button 
+                       >BACK</button> -->
+                  </form>
+                </div>
+         
+          <!-- <button mat-raised-button class="btn btn-rose btn-round"  [routerLink]="['/misplotviz', searchCombinedGroupKey]" role="link">MIS PLOT</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+  <div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                      <i class="material-icons">assignment</i>
+                </div>
+                <h4 class="card-title">Time-Series Graph</h4>
+            <div id="chart1" style="width:100%; height:100%"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="chartReadyMIS">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header">
+                    <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">MIS Graph</h4>
+              <div id="chart" style="margin-top:30px"></div>
+              <!-- <h4 class="card-title">Probability Density Function</h4>
+              <h4>Group Key : {{selectedCombinedGroupKey}}</h4> -->
+              <canvas baseChart width="500" height="200"
+              [datasets]="linemisTimeChartData"
+              [labels]="linemisTimeChartLabels"
+              [options]="linemisTimeChartOptions"
+              [legend]="linemisTimeChartLegend"
+              [chartType]="linemisTimeChartType"
+              [colors]="linemisTimeChartColors" 
+              [plugins]="linemisTimeChartPlugins">
+          </canvas>
+          </div>
+          
+      </div> 
+    
+  </div>
+</div>
+
+
+
+<div class="container" *ngIf="chartReady">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                    <i class="material-icons">assignment</i>
+              </div>
+             
+              <h4 class="card-title">Probability Density Function</h4>
+              <h4>Group Key : {{selectedCombinedGroupKey}}</h4>
+              <h5>Alpha : {{Alpha_pdf}}     Beta : {{Beta_pdf}}</h5>
+              <div id="chartpdf" ></div>
+          </div>
+          
+      </div> 
+      <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header">
+                        <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Cumulative Density Function</h4>
+                   <h4>Group Key : {{selectedCombinedGroupKey}}</h4>
+                   <h5>Alpha : {{Alpha_cdf}}     Beta : {{Beta_cdf}}</h5>
+                   <!-- <h4>Beta : {{Beta_cdf}}</h4> -->
+                   <div id="chartcdf" ></div>
+              </div>
+              
+          </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container" *ngIf="chartReady">
+  <div class="row">
+      <div class="col-md-6">
+        <div class="card" >
+          <div class="card-header">
+                <i class="material-icons">assignment</i>
+          </div>
+ 
+          <h4 class="card-title">Histogram Charts</h4>
+          <div id='histogramChart'></div>
+          
+         
+      </div>
+          
+      </div> 
+      <div class="col-md-6">
+        <div class="card" style="height:530px">
+          <div class="card-header">
+                <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title">Weibull Chart</h4>
+           <!-- <h4>Group Key : {{selectedCombinedGroupKey}}</h4> -->
+           <div class="chart-diplay" style="margin-top:60px">
+            <div style="width: 100% ">
+              <!-- <app-highchart-range></app-highchart-range> -->
+              <div id="chartweibull" ></div>
+            </div>
+      </div> 
+  </div>
+              
+          </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container"  >
+    <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="material-icons">assignment</i>
+                </div>
+                <div >
+                  <h4 class="card-title">Table</h4>
+                  <div class="table-responsive">
+                        <table class="table" mat-table [dataSource]="dataSource"  matSort>
+                                <!--- Note that these columns can be defined in any order.
+                                The actual rendered columns are set as a property on the row definition" -->
+                                <!-- Parameter Column -->
+                                <ng-container matColumnDef="Parameter">
+                                    <th  class="text-primary" mat-header-cell *matHeaderCellDef mat-sort-header> Parameter </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Parameter}} </td>
+                                </ng-container>
+                                <!-- Point_Estimate Column -->
+                                <ng-container matColumnDef="Point_Estimate">
+                                    <th class="text-primary"  mat-header-cell *matHeaderCellDef mat-sort-header> Point Estimate </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Point_Estimate}} </td>
+                                </ng-container>
+                                <!-- Standard_Error Column -->
+                                <ng-container matColumnDef="Standard_Error">
+                                    <th class="text-primary"  mat-header-cell *matHeaderCellDef mat-sort-header> Standard Error </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Standard_Error }} </td>
+                                </ng-container>
+                                <!-- Lower_CI Column -->
+                                <ng-container matColumnDef="Lower_CI">
+                                    <th class="text-primary"  mat-header-cell *matHeaderCellDef mat-sort-header> Lower CI </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Lower_CI}} </td>
+                                </ng-container>
+                                <!-- Upper_CI Column -->
+                                <ng-container matColumnDef="Upper_CI">
+                                    <th class="text-primary"  mat-header-cell *matHeaderCellDef mat-sort-header> Upper CI </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Upper_CI}} </td>
+                                </ng-container>
+                                <!-- Group Key Column -->
+                                <ng-container matColumnDef="group_key">
+                                    <th class="text-primary"  mat-header-cell *matHeaderCellDef mat-sort-header> Group Key </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.group_key}} </td>
+                                </ng-container>           
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                            showFirstLastButtons 
+                            aria-label="Select page of periodic elements">
+                </mat-paginator>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+
+
+
+
+
+

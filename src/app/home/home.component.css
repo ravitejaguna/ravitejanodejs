@@ -1,0 +1,19 @@
+.home-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+    padding: 50px;
+    cursor: pointer;
+}
+
+.home-div {
+    display:flex; 
+    flex-direction: row; 
+    position: absolute;
+    left: 50px;
+    top: 100px;
+}
+
+mat-card { 
+    margin: 20px; 
+    padding: 20px;
+}

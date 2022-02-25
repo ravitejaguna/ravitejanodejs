@@ -1,0 +1,92 @@
+
+
+
+
+
+<div class="container" >
+    <ngx-spinner></ngx-spinner>
+    <div class="row" style="margin-top: 30px">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <div class="card-content">
+            <h4 class="card-title">MIS(Month in service) Chart
+              <!-- <small class="category">Complete your profile</small> -->
+            </h4>
+            <form #filterForm="ngForm">
+              <div class="row">
+             
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field color="accent">
+                    <mat-label>Select Year</mat-label>
+                    <mat-select [(value)]="selectedYear" name="year" ngModel required>
+                        <mat-option *ngFor="let misyear of misYears" [value]="misyear.value" (onSelectionChange)="onSelectEventYear($event, misyear)">
+                            {{misyear.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                </div>
+                <div class="col-md-4">
+                  <!-- <mat-form-field>
+                    <mat-label>Select Limit</mat-label>
+                    <mat-select [(value)]="selectedLimit" name="limit" ngModel required>
+                        <mat-option value="0">Select All</mat-option>
+                        <mat-option *ngFor="let limit of queryLimit" [value]="limit.value" (onSelectionChange)="onSelectEventLimit($event, limit)">
+                            {{limit.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+                  
+                </div>
+               
+              
+              </div>
+              <button 
+                     md-raised-button
+                    type="submit" class="btn btn-rose" 
+                    (click)="filterByGroupIDmis()" [disabled]="filterForm.form.invalid"
+                   >SEARCH</button>
+
+                   <button 
+                   md-raised-button
+                  type="submit" class="btn btn-rose" 
+                  mat-button (click)="goBack()"
+                 >BACK</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="container" *ngIf="chartReady">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                      <i class="material-icons">home</i>
+                </div>
+                <div id="chart" ></div>
+                <!-- <h4 class="card-title">Probability Density Function</h4>
+                <h4>Group Key : {{selectedCombinedGroupKey}}</h4> -->
+                <canvas baseChart width="500" height="200"
+                [datasets]="linemisTimeChartData"
+                [labels]="linemisTimeChartLabels"
+                [options]="linemisTimeChartOptions"
+                [legend]="linemisTimeChartLegend"
+                [chartType]="linemisTimeChartType"
+                [colors]="linemisTimeChartColors" 
+                [plugins]="linemisTimeChartPlugins">
+            </canvas>
+            </div>
+            
+        </div> 
+      
+    </div>
+</div>

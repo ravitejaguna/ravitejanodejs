@@ -1,0 +1,65 @@
+<!-- <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Log In</mat-toolbar>
+      
+        <mat-card-content>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="email">
+            </mat-form-field>
+            
+            <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Login</button>
+            </form>
+        </mat-card-content>        
+    </mat-card>
+</div> -->
+
+
+
+<div class="container">
+  
+    <div class="row page-title">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="row">
+          <div class="col-md-6 page-title">
+            <div class="card card-raised">
+              <!-- <h6>Individual</h6> -->
+              <div class="icon">
+                <i class="material-icons">person</i>
+              </div>
+              <!-- <h3 class="text-center">Notifications</h3> -->
+              <h3 class="card-title">Interactive Weibull</h3>
+              <!-- <p class="card-description text-center">
+                This is good if your company size is between 2 and 10 Persons.
+              </p> -->
+              <button mat-raised-button routerLink="/interactive" routerLinkActive="router-active" class="btn btn-rose btn-round">CHOOSE</button>
+            </div>
+          </div>
+          <div class="col-md-6 page-title">
+            <div class="card card-raised">
+              <!-- <h6>Small Company</h6> -->
+              <div class="icon">
+                <i class="material-icons">weekend</i>
+              </div>
+              <h3 class="card-title">Tracking View</h3>
+              <!-- <p class="card-description text-center">
+                This is good if your company size is between 2 and 10 Persons.
+              </p> -->
+              <button mat-raised-button routerLink="/tracking" routerLinkActive="router-active" class="btn btn-rose btn-round">CHOOSE</button>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+      
+  

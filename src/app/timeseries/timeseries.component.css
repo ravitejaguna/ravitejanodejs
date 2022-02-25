@@ -1,0 +1,218 @@
+.container {
+    max-width: 1200px;
+    padding: 100px 0;
+}
+
+.form-container {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+}
+
+.tracking-full-width {
+    width: 100%;
+}
+
+.tracking-card {
+    max-width: 500px;
+    margin: 4em;
+}
+
+mat-form-field {
+    width: auto;
+    margin: 30px 10px;
+}
+
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 400px;
+}
+
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+
+/* CSS */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.centerpanel {
+    flex: 1;
+}
+
+.leftPannel {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.table-left-pannel {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.headerPannel {
+    display: flex;
+    position: relative;
+    top: 50px;
+    max-height: 60px;
+}
+
+.leftPannel img {
+    width: 400px;
+}
+
+.rightPannel {
+    flex: 1;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+.rightPannel img {
+    width: 535px;
+}
+
+.card {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+    .leftPannel {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 270px;
+}
+
+.mat-card {
+    text-align: justify;
+}
+
+.mat-cell,
+.mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 10px;
+    line-break: unset;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.mat-row,
+.mat-header-row {
+    display: table-row;
+}
+
+.table-container {
+    max-width: 100%;
+}
+
+/* .chart-wrapper {
+    width: 50%;
+    height: 400px;
+    position: relative;
+} */
+
+.card-header {
+    margin: 50px 0;
+    width: 1200px;
+}
+
+.mat-card-actions {
+    position: relative;
+    left: 90px;
+}
+
+.col-sm-6 {
+    flex: 0 0 auto;
+    width: 20%;
+}
+
+.marcard-table {
+    text-align: justify;
+    width: 70%;
+}
+
+.row-table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.mat-card-header {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.mat-card-header-text {
+    margin: 0 16px;
+}
+
+.mat-body p {
+    margin: 0 0 20px;
+}
+
+button {
+    font-size: 16px;
+}
+
+.mat-card-actions .mat-button {
+    margin: 0 20px;
+}
+
+.mat-card-table {
+    padding: 0;
+}
+
+.mat-header-cell {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.mat-cell, .mat-header-cell {
+    padding: 0px 65px;
+}
+
+.row-rightbox {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.right-panel-card {
+    width: 150px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
+
+.timeseries-right {
+    cursor: pointer;
+}
+
+.misplot-right {
+    cursor: pointer;
+}

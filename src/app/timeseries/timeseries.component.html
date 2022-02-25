@@ -1,0 +1,43 @@
+<div class="container ">
+    <ngx-spinner></ngx-spinner>
+    <!--  -->
+    <div class="row">
+        <div class="leftPannel">
+            <h2>Time Series Chart</h2>
+            <form #filterForm="ngForm">
+                <mat-form-field>
+                    <mat-label>Select Year</mat-label>
+                    <mat-select [(value)]="selectedYear" name="year" ngModel required>
+                        <mat-option *ngFor="let misyear of misYears" [value]="misyear.value" (onSelectionChange)="onSelectEventYear($event, misyear)">
+                            {{misyear.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Select Limit</mat-label>
+                    <mat-select [(value)]="selectedLimit" name="limit" ngModel required>
+                        <mat-option value="all">Select All</mat-option>
+                        <mat-option *ngFor="let limit of queryLimit" [value]="limit.value" (onSelectionChange)="onSelectEventLimit($event, limit)">
+                            {{limit.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button type="submit" color="primary" mat-raised-button (click)="filterByGroupID()" [disabled]="filterForm.form.invalid">Search</button>
+                <button style="margin-left: 10px;" color="primary" mat-button (click)="goBack()">Back</button>
+            </form>
+        </div>
+    </div>
+    <!--  -->
+    <!-- <h1>Time Series Chart</h1> -->
+    <div style="display: block; margin: 100px;" *ngIf="chartReady">
+        <canvas baseChart width="500" height="200"
+            [datasets]="lineTimeChartData"
+            [labels]="lineTimeChartLabels"
+            [options]="lineTimeChartOptions"
+            [legend]="lineTimeChartLegend"
+            [chartType]="lineTimeChartType"
+            [colors]="lineTimeChartColors" 
+            [plugins]="lineTimeChartPlugins">
+        </canvas>
+    </div>
+</div>
