@@ -1,0 +1,94 @@
+[
+    {
+        "Parameter": "Alpha",
+        "Point_Estimate": "7,720,434,895,690.56",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-01",
+        "Date_of_computation": "2021-10-18 13:18"
+    }, 
+    {
+        "Parameter": "Beta",
+        "Point_Estimate": "0.22",
+        "Standard_Error": "0.06",
+        "Lower_CI": "0.13",
+        "Upper_CI": "0.37",
+        "group_key": "01202_47_2017-01-01",
+        "Date_of_computation": "2021-10-18 13:18"
+    }, 
+    {
+        "Parameter": "Gamma",
+        "Point_Estimate": "0.16",
+        "Standard_Error": "0.00",
+        "Lower_CI": "0.16",
+        "Upper_CI": "0.16",
+        "group_key": "01202_47_2017-01-01",
+        "Date_of_computation": "2021-10-18 13:18"
+    }, 
+    {
+        "Parameter": "mean",
+        "Point_Estimate": "481,885,620,684,344.00",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-03",
+        "Date_of_computation": "2021-10-18 13:18"
+    },
+    {
+        "Parameter": "median",
+        "Point_Estimate": "7,720,434,895,690.56",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-02",
+        "Date_of_computation": "2021-10-18 13:18"
+        
+    }, 
+    {
+        "Parameter": "mode",
+        "Point_Estimate": "0.16",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-02",
+        "Date_of_computation": "2021-10-18 13:18"
+    }, 
+    {
+        "Parameter": "b5",
+        "Point_Estimate": "8,768,266.49",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-02",
+        "Date_of_computation": "2021-10-18 13:18"
+    }, 
+    {
+        "Parameter": "Failurerate_36",
+        "Point_Estimate": "7,720,434,895,690.56",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-02",
+        "Date_of_computation": "2021-10-18 13:18"
+    },
+    {
+        "Parameter": "MIS",
+        "Point_Estimate": "36.00",
+        "Standard_Error": "56,742,284,439,790.94",
+        "Lower_CI": "4,281,850.34",
+        "Upper_CI": "13920410614091504000",
+        "group_key": "01202_47_2017-01-02",
+        "Date_of_computation": "2021-10-18 13:18"
+        
+    }, 
+    {
+        "Parameter": "Alpha",
+        "Point_Estimate": "2,965,991.27",
+        "Standard_Error": "1,705,233.81",
+        "Lower_CI": "961,146.49",
+        "Upper_CI": "9,152,719.49",
+        "group_key": "01202_47_2017-01-03",
+        "Date_of_computation": "2021-10-18 13:18"
+    }
+]
